@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/*
+ *  @author : Imtiaz Adar
+ *  Brain's Photo - Codeforces
+ */
+
 public class Brains_Photo {
 
 	public static void main(String[] args) throws IOException {
