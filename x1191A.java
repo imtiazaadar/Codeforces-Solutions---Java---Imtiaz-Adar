@@ -1,28 +1,31 @@
 package javaproject;
-import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 /*
  *   Author : Imtiaz Adar
  */
-public class Strange_Function {
+public class x1191A {
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(reader);
         PrintWriter out = new PrintWriter(System.out);
         StringTokenizer token = new StringTokenizer("");
         InputReader scan = new InputReader(br, token);
-        int T = scan.nextInt();
-        while(T-- > 0)
-        {
-            StringBuilder sb = new StringBuilder();
-            char[] X = scan.next().toCharArray();
-            sb.append(X.length);
-            out.println(sb);
-            out.flush();
-        }
+        StringBuilder sb = new StringBuilder();
+        int X = scan.nextInt();
+        if(X % 4 == 0)
+            sb.append("1 A");
+        else if(X % 4 == 1)
+            sb.append("0 A");
+        else if(X % 4 == 2)
+            sb.append("1 B");
+        else if(X % 4 == 3)
+            sb.append("2 A");
+        out.println(sb);
+        out.flush();
         out.close();
     }
     static class InputReader {
@@ -48,7 +51,6 @@ public class Strange_Function {
         String nextLine() throws IOException {
             return readfile.readLine();
         }
-
         int nextInt(){
             return Integer.parseInt(next());
         }

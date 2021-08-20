@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 /*
  *   Author : Imtiaz Adar
  */
-public class Strange_Function {
+public class String_Similarity {
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(reader);
@@ -18,8 +18,12 @@ public class Strange_Function {
         while(T-- > 0)
         {
             StringBuilder sb = new StringBuilder();
-            char[] X = scan.next().toCharArray();
-            sb.append(X.length);
+            int n = scan.nextInt();
+            char[] chr = scan.next().toCharArray();
+            String sum = "";
+            for(int i = 0; i < chr.length; i+=2)
+                sum += chr[i];
+            sb.append(sum);
             out.println(sb);
             out.flush();
         }

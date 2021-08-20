@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 /*
  *   Author : Imtiaz Adar
  */
-public class Strange_Function {
+public class String_Generation {
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(reader);
@@ -18,8 +18,15 @@ public class Strange_Function {
         while(T-- > 0)
         {
             StringBuilder sb = new StringBuilder();
-            char[] X = scan.next().toCharArray();
-            sb.append(X.length);
+            int x = scan.nextInt();
+            int y = scan.nextInt();
+            char chr = 'a';
+            for(int i = 0; i < x; i++)
+            {
+                sb.append(chr);
+                if(chr <= 'b') chr++;
+                else chr = 'a';
+            }
             out.println(sb);
             out.flush();
         }
@@ -57,6 +64,14 @@ public class Strange_Function {
         }
         long nextLong(){
             return Long.parseLong(next());
+        }
+        int[] IntArray(int size) throws IOException {
+            int[] dp = new int[size];
+            token = new StringTokenizer(readfile.readLine());
+            for (int i = 0; i < size; i++) {
+                dp[i] = Integer.parseInt(token.nextToken());
+            }
+            return dp;
         }
     }
 }

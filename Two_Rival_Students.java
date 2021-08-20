@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 /*
  *   Author : Imtiaz Adar
  */
-public class Strange_Function {
+public class Two_Rival_Students {
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(reader);
@@ -18,8 +18,12 @@ public class Strange_Function {
         while(T-- > 0)
         {
             StringBuilder sb = new StringBuilder();
-            char[] X = scan.next().toCharArray();
-            sb.append(X.length);
+            int w = scan.nextInt();
+            int x = scan.nextInt();
+            int y = scan.nextInt();
+            int z = scan.nextInt();
+            int res = Math.min(w - 1, Math.abs(y - z) + x);
+            sb.append(res);
             out.println(sb);
             out.flush();
         }
@@ -48,7 +52,6 @@ public class Strange_Function {
         String nextLine() throws IOException {
             return readfile.readLine();
         }
-
         int nextInt(){
             return Integer.parseInt(next());
         }

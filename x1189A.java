@@ -1,28 +1,45 @@
 package javaproject;
-import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 /*
  *   Author : Imtiaz Adar
  */
-public class Strange_Function {
+public class x1189A {
     public static void main(String[] args) throws IOException {
         InputStreamReader reader = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(reader);
         PrintWriter out = new PrintWriter(System.out);
         StringTokenizer token = new StringTokenizer("");
         InputReader scan = new InputReader(br, token);
-        int T = scan.nextInt();
-        while(T-- > 0)
-        {
-            StringBuilder sb = new StringBuilder();
-            char[] X = scan.next().toCharArray();
-            sb.append(X.length);
-            out.println(sb);
-            out.flush();
+        StringBuilder sb = new StringBuilder();
+        int len = scan.nextInt();
+        char [] chr = scan.next().toCharArray();
+        int total = 0;
+        for(int i = 0; i < len; i++)
+            if(chr[i] == '0')
+                total++;
+            else if(chr[i] == '1')
+                total--;
+        if(total != 0)
+            total = 1;
+        else
+            total = 2;
+        //int newlen = len / total;
+        sb.append(total + "\n");
+        if(total == 1)
+            for(int i = 0; i < len; i++)
+                sb.append(chr[i]);
+        else {
+            for(int i = 0; i < len - 1; i++)
+                sb.append(chr[i]);
+            sb.append(" ");
+            sb.append(chr[len - 1]);
         }
+        out.println(sb);
+        out.flush();
         out.close();
     }
     static class InputReader {
@@ -48,7 +65,6 @@ public class Strange_Function {
         String nextLine() throws IOException {
             return readfile.readLine();
         }
-
         int nextInt(){
             return Integer.parseInt(next());
         }
