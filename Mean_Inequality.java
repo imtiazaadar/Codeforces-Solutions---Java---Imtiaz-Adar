@@ -5,32 +5,31 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 /*
  *   @author : Imtiaz Adar
+ *   Stream : Shono Mohajon
  */
-public class Binary_Decimal {
+public class Mean_Inequality {
     public static void main(String[] args) throws IOException {
-        ArrayReader scan = new ArrayReader();
         InputStream inputstream = System.in;
         InputStreamReader inputstreamreader = new InputStreamReader(inputstream);
         OutputStream outputstream = System.out;
         PrintWriter out = new PrintWriter(outputstream);
         BufferedReader br = new BufferedReader(inputstreamreader);
         StringTokenizer st = new StringTokenizer(br.readLine());
+        ArrayReader scan = new ArrayReader(br, st);
         int n = Integer.parseInt(st.nextToken());
         while(n-->0)
         {
             StringBuilder sb = new StringBuilder();
             st = new StringTokenizer(br.readLine());
-            long num = Long.parseLong(st.nextToken());
-            long x = 0;
-            while(num > 0){
-                long y = num%10;
-                x = Math.max(x, y);
-                num /= 10;
-            }
-            sb.append(x);
+            int x = Integer.parseInt(st.nextToken());
+            int[] dp = scan.IntArray(x*2);
+            Arrays.sort(dp);
+            for(int i=0; i<x; i++)
+                sb.append(dp[i]+" "+dp[i+x]+" ");
             out.println(sb);
             //out.flush();
         }
@@ -40,7 +39,6 @@ public class Binary_Decimal {
     static class ArrayReader {
         private BufferedReader readfile;
         private StringTokenizer token;
-        ArrayReader(){}
 
         ArrayReader(BufferedReader br, StringTokenizer st)
         {

@@ -5,34 +5,42 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.StringTokenizer;
 /*
  *   @author : Imtiaz Adar
+ *   Stream : Koshto
  */
-public class Binary_Decimal {
+public class Arena {
     public static void main(String[] args) throws IOException {
-        ArrayReader scan = new ArrayReader();
         InputStream inputstream = System.in;
         InputStreamReader inputstreamreader = new InputStreamReader(inputstream);
         OutputStream outputstream = System.out;
         PrintWriter out = new PrintWriter(outputstream);
         BufferedReader br = new BufferedReader(inputstreamreader);
         StringTokenizer st = new StringTokenizer(br.readLine());
+        ArrayReader scan = new ArrayReader(br, st);
         int n = Integer.parseInt(st.nextToken());
         while(n-->0)
         {
             StringBuilder sb = new StringBuilder();
             st = new StringTokenizer(br.readLine());
-            long num = Long.parseLong(st.nextToken());
-            long x = 0;
-            while(num > 0){
-                long y = num%10;
-                x = Math.max(x, y);
-                num /= 10;
+            int x = Integer.parseInt(st.nextToken());
+            int [] dp = scan.IntArray(x);
+            ArrayList<Integer> dp1 = new ArrayList<Integer>();
+            for(Integer it: dp)
+                dp1.add(it);
+            int mini = Collections.min(dp1);
+            int countmin = 0;
+            for(int i=0; i<dp1.size(); i++)
+            {
+                if(dp1.get(i) == mini)
+                    countmin++;
             }
-            sb.append(x);
+            sb.append(x-countmin);
             out.println(sb);
-            //out.flush();
+            out.flush();
         }
         out.close();
     }
@@ -40,7 +48,6 @@ public class Binary_Decimal {
     static class ArrayReader {
         private BufferedReader readfile;
         private StringTokenizer token;
-        ArrayReader(){}
 
         ArrayReader(BufferedReader br, StringTokenizer st)
         {

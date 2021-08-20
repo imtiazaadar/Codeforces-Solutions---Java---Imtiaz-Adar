@@ -8,29 +8,37 @@ import java.io.OutputStream;
 import java.util.StringTokenizer;
 /*
  *   @author : Imtiaz Adar
+ *   Stream : Treat You Better
  */
-public class Binary_Decimal {
+public class Palindrome_Game {
     public static void main(String[] args) throws IOException {
-        ArrayReader scan = new ArrayReader();
         InputStream inputstream = System.in;
         InputStreamReader inputstreamreader = new InputStreamReader(inputstream);
         OutputStream outputstream = System.out;
         PrintWriter out = new PrintWriter(outputstream);
         BufferedReader br = new BufferedReader(inputstreamreader);
         StringTokenizer st = new StringTokenizer(br.readLine());
+        ArrayReader scan = new ArrayReader(br, st);
         int n = Integer.parseInt(st.nextToken());
         while(n-->0)
         {
             StringBuilder sb = new StringBuilder();
             st = new StringTokenizer(br.readLine());
-            long num = Long.parseLong(st.nextToken());
-            long x = 0;
-            while(num > 0){
-                long y = num%10;
-                x = Math.max(x, y);
-                num /= 10;
+            int x = Integer.parseInt(st.nextToken());
+            st = new StringTokenizer(br.readLine());
+            char[] str = st.nextToken().toCharArray();
+            int how = 0;
+            for (int i=0; i<x; i++)
+            {
+                if(str[i]=='0')
+                    how++;
             }
-            sb.append(x);
+            if(how==1)
+                sb.append("BOB");
+            else if(how%2==1)
+                sb.append("ALICE");
+            else
+                sb.append("BOB");
             out.println(sb);
             //out.flush();
         }
@@ -40,7 +48,6 @@ public class Binary_Decimal {
     static class ArrayReader {
         private BufferedReader readfile;
         private StringTokenizer token;
-        ArrayReader(){}
 
         ArrayReader(BufferedReader br, StringTokenizer st)
         {

@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 /*
  *   @author : Imtiaz Adar
  */
-public class Binary_Decimal {
+public class Contest_C {
     public static void main(String[] args) throws IOException {
         ArrayReader scan = new ArrayReader();
         InputStream inputstream = System.in;
@@ -20,109 +20,85 @@ public class Binary_Decimal {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         while(n-->0)
-        {
-            StringBuilder sb = new StringBuilder();
-            st = new StringTokenizer(br.readLine());
-            long num = Long.parseLong(st.nextToken());
-            long x = 0;
-            while(num > 0){
-                long y = num%10;
-                x = Math.max(x, y);
-                num /= 10;
-            }
-            sb.append(x);
-            out.println(sb);
-            //out.flush();
-        }
-        out.close();
+            out.close();
     }
 
     static class ArrayReader {
-        private BufferedReader readfile;
-        private StringTokenizer token;
-        ArrayReader(){}
-
-        ArrayReader(BufferedReader br, StringTokenizer st)
-        {
-            this.readfile = br;
-            this.token = st;
-        }
-
-        int[] IntArray(int size) throws IOException {
+        int[] IntArray(int size, BufferedReader br, StringTokenizer st) throws IOException {
             int[] dp = new int[size];
-            token = new StringTokenizer(readfile.readLine());
+            st = new StringTokenizer(br.readLine());
             for (int i = 0; i < size; i++) {
-                dp[i] = Integer.parseInt(token.nextToken());
+                dp[i] = Integer.parseInt(st.nextToken());
             }
             return dp;
         }
 
-        double[] DoubleArray(int size) throws IOException {
+        double[] DoubleArray(int size, BufferedReader br, StringTokenizer st) throws IOException {
             double[] dp = new double[size];
-            token = new StringTokenizer(readfile.readLine());
+            st = new StringTokenizer(br.readLine());
             for (int i = 0; i < size; i++) {
-                dp[i] = Double.parseDouble(token.nextToken());
+                dp[i] = Double.parseDouble(st.nextToken());
             }
             return dp;
         }
 
-        long[] LongArray(int size) throws IOException {
+        long[] LongArray(int size, BufferedReader br, StringTokenizer st) throws IOException {
             long[] dp = new long[size];
-            token = new StringTokenizer(readfile.readLine());
+            st = new StringTokenizer(br.readLine());
             for (int i = 0; i < size; i++) {
-                dp[i] = Long.parseLong(token.nextToken());
+                dp[i] = Long.parseLong(st.nextToken());
             }
             return dp;
         }
 
-        String[] StringArray(int size) throws IOException {
+        String[] StringArray(int size, BufferedReader br, StringTokenizer st) throws IOException {
             String[] dp = new String[size];
-            token = new StringTokenizer(readfile.readLine());
+            st = new StringTokenizer(br.readLine());
             for (int i = 0; i < size; i++) {
-                dp[i] = token.nextToken();
+                dp[i] = st.nextToken();
             }
             return dp;
         }
 
-        int[][] IntArray2d(int size1, int size2) throws IOException {
+        int[][] IntArray2d(int size1, int size2, BufferedReader br, StringTokenizer st) throws IOException {
             int[][] dp = new int[size1][size2];
             for (int i = 0; i < size1; i++) {
-                token = new StringTokenizer(readfile.readLine());
+                st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < size2; j++) {
-                    dp[i][j] = Integer.parseInt(token.nextToken());
+                    dp[i][j] = Integer.parseInt(st.nextToken());
                 }
             }
             return dp;
         }
 
-        double[][] DoubleArray2d(int size1, int size2) throws IOException {
+        double[][] DoubleArray2d(int size1, int size2, BufferedReader br, StringTokenizer st) throws IOException {
             double[][] dp = new double[size1][size2];
             for (int i = 0; i < size1; i++) {
-                token = new StringTokenizer(readfile.readLine());
+                st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < size2; j++) {
-                    dp[i][j] = Double.parseDouble(token.nextToken());
+                    dp[i][j] = Double.parseDouble(st.nextToken());
                 }
             }
             return dp;
         }
 
-        long[][] LongArray2d(int size1, int size2) throws IOException {
+        long[][] LongArray2d(int size1, int size2, BufferedReader br, StringTokenizer st) throws IOException {
             long[][] dp = new long[size1][size2];
             for (int i = 0; i < size1; i++) {
-                token = new StringTokenizer(readfile.readLine());
+                st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < size2; j++) {
-                    dp[i][j] = Long.parseLong(token.nextToken());
+                    dp[i][j] = Long.parseLong(st.nextToken());
                 }
             }
             return dp;
         }
 
-        String[][] StringArray2d(int size1, int size2) throws IOException {
+        String[][] StringArray2d(int size1, int size2, BufferedReader br, StringTokenizer st) throws IOException {
             String[][] dp = new String[size1][size2];
             for (int i = 0; i < size1; i++) {
-                token = new StringTokenizer(readfile.readLine());
+                st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < size2; j++) {
-                    dp[i][j] = token.nextToken();
+                    dp[i][j] = st.nextToken();
                 }
             }
             return dp;

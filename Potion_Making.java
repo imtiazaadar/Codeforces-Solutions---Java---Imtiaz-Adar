@@ -8,29 +8,29 @@ import java.io.OutputStream;
 import java.util.StringTokenizer;
 /*
  *   @author : Imtiaz Adar
+ *   Stream : Koshto
  */
-public class Binary_Decimal {
+public class Potion_Making {
+    public static int gcd(int a, int b)
+    {
+        return (b==0)?a:gcd(b,a%b);
+    }
+
     public static void main(String[] args) throws IOException {
-        ArrayReader scan = new ArrayReader();
         InputStream inputstream = System.in;
         InputStreamReader inputstreamreader = new InputStreamReader(inputstream);
         OutputStream outputstream = System.out;
         PrintWriter out = new PrintWriter(outputstream);
         BufferedReader br = new BufferedReader(inputstreamreader);
         StringTokenizer st = new StringTokenizer(br.readLine());
+        ArrayReader scan = new ArrayReader(br, st);
         int n = Integer.parseInt(st.nextToken());
         while(n-->0)
         {
             StringBuilder sb = new StringBuilder();
             st = new StringTokenizer(br.readLine());
-            long num = Long.parseLong(st.nextToken());
-            long x = 0;
-            while(num > 0){
-                long y = num%10;
-                x = Math.max(x, y);
-                num /= 10;
-            }
-            sb.append(x);
+            int x = Integer.parseInt(st.nextToken());
+            sb.append(100/gcd(100,x));
             out.println(sb);
             //out.flush();
         }
@@ -40,7 +40,6 @@ public class Binary_Decimal {
     static class ArrayReader {
         private BufferedReader readfile;
         private StringTokenizer token;
-        ArrayReader(){}
 
         ArrayReader(BufferedReader br, StringTokenizer st)
         {

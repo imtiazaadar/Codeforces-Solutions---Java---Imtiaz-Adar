@@ -35,7 +35,8 @@ public class Customizing_The_Track {
     }
 
     static class InputReader {
-        BufferedReader readfile = new BufferedReader(new InputStreamReader(System.in));
+        InputStream inputStream = System.in;
+        BufferedReader readfile = new BufferedReader(new InputStreamReader(inputStream));
         StringTokenizer token = new StringTokenizer("");
 
         String next() {

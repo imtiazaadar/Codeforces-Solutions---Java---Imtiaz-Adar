@@ -11,13 +11,23 @@ import java.io.OutputStream;
 */
 
 public class Odd_Divisor {
+    final long mod = 1000000007L;
+    public static void main(String[] args) {
+        InputReader scan = new InputReader();
+        OutputStream outputStream = System.out;
+        PrintWriter out = new PrintWriter(outputStream);
+        Runner run = new Runner();
+        long n = scan.nextLong();
+        for(long i = 1; i <= n; i++)
+            run.Raw(scan, out);
+        out.close();
+    }
+
     static class Runner {
         void Raw(InputReader scan, PrintWriter out)
         {
             StringBuilder sb = new StringBuilder();
             long num = scan.nextLong();
-            boolean odd = false;
-            long num1 = num-1;
             if(num % 2 != 0)
             {
                 sb.append("YES");
@@ -112,16 +122,5 @@ public class Odd_Divisor {
             }
             return arr;
         }
-    }
-
-    public static void main(String[] args) {
-        InputReader scan = new InputReader();
-        OutputStream outputStream = System.out;
-        PrintWriter out = new PrintWriter(outputStream);
-        Runner run = new Runner();
-        long n = scan.nextLong();
-        for(long i = 1; i <= n; i++)
-            run.Raw(scan, out);
-        out.close();
     }
 }

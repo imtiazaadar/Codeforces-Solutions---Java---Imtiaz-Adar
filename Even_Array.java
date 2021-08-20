@@ -8,44 +8,77 @@ import java.io.OutputStream;
 import java.util.StringTokenizer;
 /*
  *   @author : Imtiaz Adar
+ *   Stream : I'm Not Worth It
  */
-public class Binary_Decimal {
+public class Even_Array {
     public static void main(String[] args) throws IOException {
-        ArrayReader scan = new ArrayReader();
         InputStream inputstream = System.in;
         InputStreamReader inputstreamreader = new InputStreamReader(inputstream);
         OutputStream outputstream = System.out;
         PrintWriter out = new PrintWriter(outputstream);
         BufferedReader br = new BufferedReader(inputstreamreader);
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
+        StringTokenizer st = new StringTokenizer("");
+        InputReader scan = new InputReader(br, st);
+        int n = scan.nextInt();
         while(n-->0)
         {
             StringBuilder sb = new StringBuilder();
-            st = new StringTokenizer(br.readLine());
-            long num = Long.parseLong(st.nextToken());
-            long x = 0;
-            while(num > 0){
-                long y = num%10;
-                x = Math.max(x, y);
-                num /= 10;
+            int x = scan.nextInt();
+            int a = 0, b = 0;
+            for(int i = 0; i < x; i++)
+            {
+                int item = scan.nextInt();
+                if(i % 2 != item % 2)
+                {
+                    if(i % 2 == 0)
+                        a++;
+                    else
+                        b++;
+                }
             }
-            sb.append(x);
+            sb.append((a == b) ? a : "-1");
             out.println(sb);
-            //out.flush();
+            out.flush();
         }
         out.close();
     }
 
-    static class ArrayReader {
+    static class InputReader {
         private BufferedReader readfile;
         private StringTokenizer token;
-        ArrayReader(){}
 
-        ArrayReader(BufferedReader br, StringTokenizer st)
+        InputReader(BufferedReader br, StringTokenizer st)
         {
             this.readfile = br;
             this.token = st;
+        }
+
+        String next(){
+            while (!this.token.hasMoreTokens()){
+                try{
+                    token = new StringTokenizer(readfile.readLine());
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+            return this.token.nextToken();
+        }
+
+        String nextLine() throws IOException {
+            return readfile.readLine();
+        }
+
+        int nextInt(){
+            return Integer.parseInt(next());
+        }
+
+        double nextDouble(){
+            return Double.parseDouble(next());
+        }
+
+        long nextLong(){
+            return Long.parseLong(next());
         }
 
         int[] IntArray(int size) throws IOException {
